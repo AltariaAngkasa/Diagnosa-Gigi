@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Prediksi - Klasifikasi Gigi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.344.0/lucide.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen bg-gradient">
+        <div class="container">
+            <!-- Header -->
+            <div class="result-header">
+                <button onclick="window.location.href='/'" class="back-btn">
+                    <i data-lucide="arrow-left"></i>
+                    Kembali
+                </button>
+                <div class="result-title-section">
+                    <div class="header-icon">
+                        <i data-lucide="brain"></i>
+                    </div>
+                    <div>
+                        <h1 class="result-title">Hasil Prediksi</h1>
+                        <p class="result-subtitle">Analisis klasifikasi gigi menggunakan AI</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state">
+                <div class="loading-content">
+                    <div class="loading-spinner-large"></div>
+                    <h2>Menganalisis Gambar...</h2>
+                    <p>AI sedang memproses dan mengklasifikasi gambar gigi Anda</p>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="resultsContent" class="results-grid" style="display: none;">
+                <!-- Image Preview -->
+                <div class="result-card">
+                    <div class="card-header">
+                        <h2>Gambar Gigi</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="image-container">
+                            <img id="resultImage" src="{{ image_path }}" alt="Gambar Gigi" class="result-img">
+                        </div>
+                        <div id="imageInfo" class="image-info"></div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="results-section">
+                    <!-- Main Result -->
+                    <div id="mainResult" class="main-result-card">
+                        <div class="result-content">
+                            <div class="result-header-info">
+                                <div class="result-label-section">
+                                    <i id="statusIcon" data-lucide="check-circle" class="status-icon"></i>
+                                    <h2 id="resultLabel" class="result-label">{{ label }}</h2>
+                                </div>
+                                <div class="confidence-section">
+                                    <div class="confidence-label">Keyakinan</div>
+                                    <div id="confidenceValue" class="confidence-value">{{ confidence }}%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div id="progressFill" class="progress-fill"></div>
+                                </div>
+                            </div>
+
+                            <p id="resultDescription" class="result-description"></p>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="recommendations-card">
+                        <div class="card-header">
+                            <h3>
+                                <i data-lucide="bar-chart-3"></i>
+                                Rekomendasi
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <ul id="recommendationsList" class="recommendations-list"></ul>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button id="downloadBtn" class="action-btn primary">
+                            <i data-lucide="download"></i>
+                            Download Hasil
+                        </button>
+                        <button class="action-btn secondary">
+                            <i data-lucide="share-2"></i>
+                            Bagikan
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div id="disclaimer" class="disclaimer" style="display: none;">
+                <div class="disclaimer-content">
+                    <i data-lucide="alert-circle" class="disclaimer-icon"></i>
+                    <div>
+                        <h4>Disclaimer</h4>
+                        <p>
+                            Hasil klasifikasi ini merupakan prediksi dari model AI dan bukan diagnosis medis resmi. 
+                            Selalu konsultasikan dengan dokter gigi profesional untuk mendapatkan diagnosis dan 
+                            perawatan yang tepat. Teknologi AI ini dimaksudkan sebagai alat bantu screening awal saja.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="result.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>

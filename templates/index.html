@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klasifikasi Gigi - AI Dental Classification</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.344.0/lucide.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen bg-gradient">
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-icon">
+                    <i data-lucide="brain"></i>
+                </div>
+                <h1 class="main-title">
+                    Klasifikasi Gigi
+                    <span class="subtitle">AI-Powered Dental Classification</span>
+                </h1>
+                <p class="description">
+                    Upload gambar gigi untuk mendapatkan analisis dan klasifikasi menggunakan teknologi artificial intelligence terdepan
+                </p>
+            </div>
+
+            <!-- Features -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon blue">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3>Akurasi Tinggi</h3>
+                    <p>Model AI dengan tingkat akurasi tinggi untuk klasifikasi dental yang presisi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon teal">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h3>Aman & Privat</h3>
+                    <p>Data gambar Anda diproses dengan aman dan tidak disimpan secara permanen</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <i data-lucide="camera"></i>
+                    </div>
+                    <h3>Mudah Digunakan</h3>
+                    <p>Interface yang intuitif untuk upload dan analisis gambar dengan cepat</p>
+                </div>
+            </div>
+
+            <!-- Upload Form -->
+            <form id="uploadForm" class="upload-form">
+                <div class="form-content">
+                    <h2 class="form-title">Upload Gambar Gigi</h2>
+                    
+                    <div id="dropZone" class="drop-zone">
+                        <i data-lucide="upload" class="upload-icon"></i>
+                        <p class="drop-text">Drag & drop gambar gigi di sini</p>
+                        <p class="drop-subtext">atau klik untuk memilih file</p>
+                        <button type="button" id="selectFileBtn" class="select-btn">Pilih File</button>
+                        <input type="file" id="fileInput" name="gambar" accept="image/*" required style="display: none;">
+                    </div>
+
+                    <div id="previewSection" class="preview-section" style="display: none;">
+                        <div class="preview-header">
+                            <h3>Preview Gambar</h3>
+                            <button type="button" id="removeFileBtn" class="remove-btn">Hapus</button>
+                        </div>
+                        <div class="preview-container">
+                            <img id="previewImage" class="preview-img" alt="Preview">
+                        </div>
+                        <div id="fileInfo" class="file-info"></div>
+                        
+                        <button type="submit" id="submitBtn" class="submit-btn">
+                            <span id="submitText">Prediksi Klasifikasi</span>
+                            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                                <div class="spinner"></div>
+                                Menganalisis...
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Instructions -->
+            <div class="instructions">
+                <h3>Tips untuk Hasil Terbaik:</h3>
+                <ul>
+                    <li>• Gunakan gambar dengan resolusi tinggi dan pencahayaan yang baik</li>
+                    <li>• Pastikan gigi terlihat jelas tanpa blur</li>
+                    <li>• Format yang didukung: JPG, PNG, JPEG</li>
+                    <li>• Ukuran file maksimal 10MB</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
